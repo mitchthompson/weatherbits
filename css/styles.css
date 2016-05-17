@@ -1,0 +1,81 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/*  
+Version: 1.0
+@Author: Mitchell Thompson
+@Author URI: http://www.mitchlthompson.com
+*/
+
+body, body * {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+    line-height: 1.5;
+}
+a img {
+	border: 0;
+}
+main {
+    
+}
+.intro {
+    margin-bottom: 1%;
+    padding:2% 2%;
+}
+
+.intro .btn {
+    margin: 3%;
+}
+.intro .city {
+    margin-right:1%;
+}
+
+/** #result **/
+.date {
+    border-bottom: solid 2px;
+}
+.city-name {
+    margin-bottom: 2%;
+    margin-left: 1%;
+}
+
+
+/** five-day forecast **/
+.five-day {
+    border: 2px solid;
+    margin-right: 1%;
+    margin-bottom: 1%;
+}
+.five-day li {
+    list-style-type: none;
+    margin-bottom: 2%;
+}
+.description {
+    text-transform: capitalize;
+    font-size: 1.5em;
+}
+
+/** current weather **/
+.current li {
+    list-style-type: none;
+}
+.current {
+    border: 2px solid;
+}
+
+
+/** media styles **/
+@media screen and (min-width: 1200px) {
+    .five-day {
+    min-height: 200px;
+    min-width: 200px;
+    margin-left:1%;
+}
+}
+}
+@media screen and (max-width: 460px) {
+    .description {
+    font-size: 1.2em;
+}
+}
