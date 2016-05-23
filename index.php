@@ -1,4 +1,4 @@
-<?php include 'includes/header.php' ?>
+<?php include 'inc_0700/header.php' ?>
                 
         <main class="container">
             <div class="row">
@@ -17,7 +17,7 @@
                 </section><!--section intro-->
             </div><!--row-->
             <div class="row">
-                <section id="result">
+                <section id="result" class="container">
                 </section>
             </div><!--row-->
         </main>    
