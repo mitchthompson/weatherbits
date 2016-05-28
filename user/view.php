@@ -26,7 +26,7 @@ if((isset($_GET['id'])) && (int)$_GET['id'] > 0){//good data, process
 }
 
 # SQL statement 
-$sql = 'select CityName from wbit_user_cities
+$sql = 'select CityName, UserID from wbit_user_cities
 where CitiesID =' . $id;
     
 
@@ -54,18 +54,21 @@ if(mysqli_num_rows($result) > 0)
         
         echo '<h2>' . $row["CityName"] . '</h2>';
         $cityName = $row["CityName"];
+        $userID = $row["UserID"];
                        
     }
    
 }else{#no records
 	echo '<div align="center">Sorry, there was an error!</div>';
 }
+@mysqli_free_result($result);
+
 ?>
             <script> var cityName = " <?php echo $cityName ?> "</script>
                 <section id="result" class="container">
                 </section>
             </div><!--row-->
-        <p><a href="list.php">Back to Favorite Cities</a></p>
+        <p><a href="list.php?id=<?php echo $userID ?>">Back to Favorite Cities</a></p>
         </main>    
     </body>
 </html>

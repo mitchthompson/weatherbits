@@ -21,11 +21,11 @@ main {
 }
 .intro {
     margin-bottom: 1%;
-    padding:2% 2%;
+    padding:15px 2%;
 }
 
 .intro .btn {
-    margin: 3%;
+   margin-top: 15px; 
 }
 .intro .city {
     margin-right:1%;

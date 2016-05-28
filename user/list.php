@@ -14,13 +14,20 @@
  */
 
 
-require '../inc_0700/config_inc.php'; #provides configuration, pathing, error handling, db credentials
+require '../inc_0700/config_inc.php'; #provides configuration, pathing, error handling
 require_once '../inc_0700/credentials_inc.php'; #provides db credentials
 
+if((isset($_GET['id'])) && (int)$_GET['id'] > 0){//good data, process
+    $id = (int)$_GET['id'];
+}else{//bad data, don't process
+    //this is redirection in PHP:
+    header('Location:../index.php');
+}
+
 # SQL statement 
-$sql = "select u.UserID, c.CityName, c.CitiesID, u.UserName from wbit_user_cities as c
+$sql = 'select u.UserID, c.CityName, c.CitiesID, u.UserName from wbit_user_cities as c
 inner join wbit_user as u on c.UserID = u.UserID
-where u.UserID = 2"
+where u.UserID =' . $id;
 
 //END CONFIG AREA ---------------------------------------------------------- 
 
@@ -55,24 +62,12 @@ if(mysqli_num_rows($result) > 0)
     
     
 }else{#no records
-	echo '<div align="center">Sorry, there are no news feeds that match that category</div>';
+	echo '<div align="center">Sorry, you do not have any favorite cities</div>';
 }
+
+@mysqli_free_result($result);
 ?>
-            
-            <section class="intro col-md-6 text-center">
-                    <form>
-                        <label class="city">City Name</label>
-                        <input type="text" name="city"><br/ >
-                        <button class="btn btn-primary weather" type="submit">Current Weather</button>
-                        <button class="btn btn-primary forecast" type="submit">Five Day Forecast</button>
-                    </form>
-                    <h4 class="feedback"></h4>
-                </section><!--section intro-->
-            </div><!--row-->
-            <div class="row">
-                <section id="result" class="container">
-                </section>
-            </div><!--row-->
+        
         </main>    
     </body>
 </html>

@@ -8,9 +8,9 @@ $(document).ready(function(){
            
            //check if user left box blank or entered numbers
            if(formData[1] == ''){
-               $("h4 .feedback").html("You must enter a city name to get a forecast")
+               $("small.feedback").html("You must enter a city name to get a forecast")
            }else if(!isNaN(formData[1])){   
-               $("h4 .feedback").html("Numbers are not a valid city name")
+               $("small.feedback").html("Numbers are not a valid city name")
            
            }else{//if valid entry
             //replace form with friendly message   
@@ -63,9 +63,9 @@ $(document).ready(function(){
 
        //check if user left box blank or entered numbers
        if(formData[1] == ''){
-           $(".feedback").html("You must enter a city name to get a forecast")
+           $("small.feedback").html("You must enter a city name to get a forecast")
        }else if(!isNaN(formData[1])){   
-           $(".feedback").html("Numbers are not a valid city name");
+           $("small.feedback").html("Numbers are not a valid city name");
 
        }else{//if valid entry
     

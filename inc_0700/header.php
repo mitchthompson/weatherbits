@@ -31,7 +31,7 @@
                                         
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="http://localhost/itc285-capstone">Home</a></li>     
-                    <li><a href="#box-2">Register</a></li> 
+                    <li><a href="http://localhost/itc285-capstone/user/register.php">Register</a></li> 
                     <li><a href="#box-3">Log In</a></li>    
                 </ul>     
         </div><!--container-fluid-->
