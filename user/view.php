@@ -34,11 +34,11 @@ where CitiesID =' . $id;
 
 ?>
 
-<?php include '../inc_0700/header.php' ?>
+<?php include '../inc_0700/header_userview.php' ?>
 
-
+<div class="jumbotron">
     <main class="container">
-        <div class="row">
+    
 
 <?php
 #IDB::conn() creates a shareable database connection via a singleton class
@@ -52,7 +52,7 @@ if(mysqli_num_rows($result) > 0)
 	while($row = mysqli_fetch_assoc($result))
 	{# pull data from associative array 
         
-        echo '<h2>' . $row["CityName"] . '</h2>';
+     //   echo '<h2 class="text-uppercase">' . $row["CityName"] . '</h2><br />';
         $cityName = $row["CityName"];
         $userID = $row["UserID"];
                        
@@ -64,11 +64,30 @@ if(mysqli_num_rows($result) > 0)
 @mysqli_free_result($result);
 
 ?>
-            <script> var cityName = " <?php echo $cityName ?> "</script>
-                <section id="result" class="container">
-                </section>
-            </div><!--row-->
-        <p><a href="list.php?id=<?php echo $userID ?>">Back to Favorite Cities</a></p>
-        </main>    
-    </body>
-</html>
+       
+        <h2 class="text-uppercase"><?php echo $cityName ?></h2>
+        
+        
+        <fieldset class="form-group">
+            <div class="btn-group">
+
+                <button class="btn btn-primary btn-lg weather" type="button">Current Weather</button>
+
+
+                <button class="btn btn-primary btn-lg forecast" type="button">Five Day Forecast</button>
+            </div>
+        </fieldset>
+        
+        <u><a class="pull-right" href="list.php?id=<?php echo $userID ?>">Back to Favorite Cities</a></u>
+    
+     
+        <script> var cityName = " <?php echo $cityName ?> "</script>
+            
+        
+    </main> 
+</div><!--jumbotron-->
+<?php include '../inc_0700/footer.php' ?>
+
+    
+    
+

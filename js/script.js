@@ -1,5 +1,43 @@
 $(document).ready(function(){  
     
+    if (navigator.geolocation) {    
+    //Browser supports geolocation, we're good to go! 
+
+    } else {    
+    alert('Sorry your browser doesn\'t support the Geolocation API');    
+    }
+        
+    $('.location').on('click', function(e) {
+        e.preventDefault();
+        navigator.geolocation.getCurrentPosition(showPosition);
+         $('.location-feedback').html("Finding your location..");
+
+        function showPosition(position) {
+
+            var latitude = position.coords.latitude;
+            var longitude = position.coords.longitude;
+
+            //Make a call to the Google maps api to get the name of the location
+            jQuery.ajax({
+            url: 'http://maps.googleapis.com/maps/api/geocode/json?latlng='+latitude+','+longitude+'&sensor=true',
+            type: 'POST',
+            dataType: 'json',
+            success: function(data) {
+
+              var location = data.results[0].address_components[2].long_name;
+              $('#cityInput').val($('#cityInput').val() + location);
+              $('.location-feedback').html("");
+
+            }
+            })
+        }
+       })
+        
+    
+    
+    
+    
+    
     //ajax request for forecast
     $('button.forecast, form input[type=submit]').on('click', function(e) {
            e.preventDefault();
@@ -15,6 +53,7 @@ $(document).ready(function(){
            }else{//if valid entry
             //replace form with friendly message   
             //form.html("Please wait...");
+               $("small.feedback").html(" ");
                
             //ajax request replacing city query with user input
             $.getJSON("http://api.openweathermap.org/data/2.5/forecast?q=" + formData[1] + ",us&mode=json&appid=eba558c0e8d425f21d760c3534758f31",function(data,status){
@@ -37,9 +76,11 @@ $(document).ready(function(){
                     + "<li>Min Temp: " + kelvinToF(data["list"][i]["main"]["temp_min"]) + "&deg;F</li>"
                     + "<li>Max Temp: " + kelvinToF(data["list"][i]["main"]["temp_max"]) + "&deg;F</li>"
                     + "<li>Humidity: " + data["list"][i]["main"]["humidity"] + "%" 
-                    + "</li></div><!--col-md-6--></div><!--row--></div><!--col-md-2-->"
+                    + "</li></div><!--col-md-6--></div><!--row--><!--col-md-2-->"
                     
                  )}; 
+                
+               
                 
                 $("#result").show();
                 $(".city-name").hide();
@@ -69,7 +110,7 @@ $(document).ready(function(){
 
        }else{//if valid entry
     
-
+            $("small.feedback").html(" ");
 
             //ajax request replacing city query with user input
             $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=" + formData[1] + ",us&mode=json&appid=eba558c0e8d425f21d760c3534758f31",function(data,status){
@@ -81,17 +122,19 @@ $(document).ready(function(){
                 $("#result").html("<div class='city-name'><h3>" + data["name"] + " Current Weather</h3></div>");
 
 
-                    $("#result").append('<div class="current">'
-                    + '<div class="row"><div class="col-md-6">'
+                    $("#result").append('<div class="current text-center">'
+                    + '<div class="row"><div class="col-sm-4">'
                     + '<img src="http://openweathermap.org/img/w/' + data.weather[0].icon + '.png">'
-                    + '</div><!--col-md-6-->'
-                    + '<div class="col-md-6"><ul>'
-                    + '<li class="description">' + data.weather[0].description  + '</li>'
-                    + "<li>Temp: " + kelvinToF(data["main"]["temp"]) + "&deg;F</li>"
+                    + '</div><!--col-xs-3-->'
+                    + '<div class="col-sm-4">'
+                    + '<h3 class="description">' + data.weather[0].description  + '</h3>'
+                    + '<h3>' + kelvinToF(data["main"]["temp"]) + '&deg;F</h3>'
+                    + '</div><!--col-xs-3-->'
+                    + '<div class="col-sm-4"><ul>'
                     + "<li>Min Temp: " + kelvinToF(data["main"]["temp_min"]) + "&deg;F</li>"
                     + "<li>Max Temp: " + kelvinToF(data["main"]["temp_max"]) + "&deg;F</li>"
                     + "<li>Humidity: " + data["main"]["humidity"] + "%"
-                    + '</li></div><!--col-md-6--></div><!--row--></div><!--current-->' 
+                    + '</li></div><!--col-xs-3--></div><!--row--></div><!--current-->' 
                     );
                 
                 $(".city-name").hide();
@@ -128,4 +171,8 @@ $(document).ready(function(){
         var fahrenheit = (((Number(value) - 273.15)*9)/5) + 32;
         return fahrenheit.toFixed(0);
     }
+    
+    
+    
+
 });

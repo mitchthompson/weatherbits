@@ -18,10 +18,11 @@ LastUpdated TIMESTAMP DEFAULT 0 ON UPDATE CURRENT_TIMESTAMP,
 PRIMARY KEY (UserID)
 )ENGINE=INNODB; 
 
-
+/*
 #assigning first survey to AdminID == 1
 INSERT INTO wbit_user VALUES (NULL,'Test User','thomitchell@gmail.com', 'password',NOW(),NOW()); 
 INSERT INTO wbit_user VALUES (NULL,'Test User2','person@gmail.com', 'password2',NOW(),NOW()); 
+*/
 
 DROP TABLE IF EXISTS wbit_user_cities;
 

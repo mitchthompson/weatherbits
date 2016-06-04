@@ -24,12 +24,8 @@ $sql = 'select u.UserID, u.UserName, u.Password from wbit_user u';
 
 //END CONFIG AREA ---------------------------------------------------------- 
 
-?>
+echo '<div class="jumbotron"><main class="container"><div class="row">';
 
-    <main class="container">
-        <div class="row">
-
-<?php           
 if(isset($_POST['submit']))
 {//data submitted  
 
@@ -44,26 +40,30 @@ if(isset($_POST['submit']))
 
         while($row = mysqli_fetch_assoc($result))
         {# pull data from associative array 
+                
 
-               if (strcasecmp($row['UserName'], $user) == 0 and strcasecmp($row['Password'], $pass) == 0)
+               if (strcasecmp($row['UserName'], $user) == 0 and password_verify('' . $pass . '','' . $row['Password'] . ''))
                {//if username & password matches, case-insensitive
-                   echo '<p>Success!</p>';
-
+                   header('Location:list.php?id=' . $row[UserID] . '');
                }
         }
-
-
+        
+        echo '
+         <h3>Username and/or password incorrect</h3>
+         <a href="./user-lg.php">Try Again?</a>';
 
     }else{#no records
-         echo "<p>Username and/or password incorrect</p>";
+         echo '
+         <h3>Username and/or password incorrect</h3>
+         <a href="./user-lg.php">Try Again?</a>';
     }
-
+    
     @mysqli_free_result($result);
                        
  }else{//show form
     
-        echo '      
-        <main class="container">
+        echo '
+            <section class="col-md-6 col-md-offset-3">
             <h2>Log In</h2>
             <form method="POST">
               <fieldset class="form-group">
@@ -75,12 +75,14 @@ if(isset($_POST['submit']))
                 <input type="password" class="form-control" name="pass" size="60" placeholder="Enter password">
               </fieldset>
               <button type="submit" name="submit" class="btn btn-primary">Submit</button>
-            </form>    
-        </main>';
+            </form></section>';
 }           
-            
+  
+
 ?>
-        
-        </main>    
-    </body>
-</html>
+
+        </div><!--row-->
+        </main>
+</div><!--jumbotron-->
+<?php include '../inc_0700/footer.php' ?>
+

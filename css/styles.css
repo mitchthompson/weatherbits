@@ -12,32 +12,60 @@ body, body * {
 	margin: 0;
 	box-sizing: border-box;
     line-height: 1.5;
+    font-family: 'Poppins', sans-serif;
+    color: #7d4627;
+}
+html,body{
+   
 }
 a img {
 	border: 0;
 }
-main {
-    
+.navbar {
+    border-radius: 0;
+    border: 0;
 }
-.intro {
-    margin-bottom: 1%;
-    padding:15px 2%;
+.navbar.navbar-default {
+    background-color: #a8b6bf;
 }
-
-.intro .btn {
-   margin-top: 15px; 
+.navbar-brand {
+    font-family: 'Sarpanch', sans-serif;
+    font-size: 1.8em;
 }
-.intro .city {
-    margin-right:1%;
+.navbar-default .navbar-brand {
+    color: #7d4627;
+}
+.navbar-nav>li>a {
+    font-family: 'Sarpanch', sans-serif;
+    font-size: 1.2em;
+}
+.navbar-default .navbar-nav>li>a {
+    color: #7d4627;
+}
+.jumbotron {
+    background-color:#c9d8c5 !important;
+    margin-top: -20px;
+}
+.btn {
+    background-color: #a8b6bf;
+    border: 1px solid #7d4627;
+    color:#7d4627;
 }
 
 /** #result **/
 .date {
     border-bottom: solid 2px;
 }
-.city-name {
-    margin-bottom: 2%;
-    margin-left: 1%;
+.result {
+    background-color: #edd9c0;
+    margin-top:-30px;
+    padding-bottom: 70%;
+    padding-top:30px;
+   
+}
+.openweather {
+    margin-top:50px;
+    border:2px solid;
 }
 
 /** five-day forecast **/
@@ -54,6 +82,10 @@ main {
     text-transform: capitalize;
     font-size: 1.5em;
 }
+/** user/list.php **/
+button a {
+    color:white;
+}
 
 /** current weather **/
 .current li {
@@ -61,15 +93,40 @@ main {
 }
 .current {
     border: 2px solid;
+    padding: 2%;
+}
+
+/** footer  **/
+
+footer {
+    background-color: #a8b6bf;
+    font-size: 1em;
+}
+footer li {
+    height:40px;
+    line-height: 40px;
+}
+@media (max-width:460px){
+    footer {
+
+    }
 }
 
 
 /** media styles **/
-@media screen and (min-width: 1200px) {
+@media (min-width: 1200px) {
     .five-day {
-    min-height: 200px;
+    min-height: 235px;
     min-width: 200px;
     margin-left:1%;
+}
+    .current {
+        max-width: 1100px;
+    }
+}
+@media (min-width: 980px) and (max-width:1200px) {
+    .five-day {
+    min-height: 175px;
 }
 }
 }
