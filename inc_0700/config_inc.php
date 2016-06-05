@@ -21,7 +21,7 @@
 # We can un-comment the line below to either see default errors (1) or shut off visual errors completely (0). 
 //ini_set('error_reporting', E_ALL | E_STRICT);  # E_ALL | E_STRICT = currently tracking all errors & warnings
 define('SHOW_ALL_ERRORS', true); # TRUE = SHOW ALL SITE ERRORS - if FALSE must be logged in as ADMIN to view errors
-define('LOG_ALL_ERRORS', true); # TRUE = TRACK ALL ERRORS IN ERROR LOG FILE (UPDATED 7/14 FOR ZEPHIR!)
+define('LOG_ALL_ERRORS', false); # TRUE = TRACK ALL ERRORS IN ERROR LOG FILE 
 $default_error_reporting = 2048; #overwritten by $error_reporting on page basis, 2048 = strict, 2047 = not quite strict,
 $default_error_handler = 'custom'; #can be set to 'custom', 'php' or 'none' - can be overwritten on individual page basis
 $config = new stdClass; #standard class allows dynamic property assignment - used to store data across themes
@@ -41,9 +41,8 @@ header("Cache-Control: no-cache");header("Expires: -1");#Helps stop browser & pr
 
 # START CONSTANTS & PATHS (universal file paths & values)-----------------------------------------------------------------
 /* automatic path settings - use the following 4 path settings for placing all code in one application folder */ 
-define('VIRTUAL_PATH', 'http://mitchlthompson.com/itc285-capstone/'); # Virtual (web) 'root' of application for images, JS & CSS files
-//define('PHYSICAL_PATH', '/home/mittho2/mitchlthompson.com/itc285-capstone/'); # Physical (PHP) 'root' of application for file & upload reference
-define('PHYSICAL_PATH', '/Users/mitche/Dropbox/SCC/sites/itc285-capstone/'); # Physical (PHP) 'root' of application for file & upload reference. For use on local machine.
+define('VIRTUAL_PATH', 'http://mitchlthompson.com/weatherbits/'); # Virtual (web) 'root' of application for images, JS & CSS files
+define('PHYSICAL_PATH', '/home/mittho2/mitchlthompson.com/weatherbits/'); # Physical (PHP) 'root' of application for file & upload reference
 define('INCLUDE_PATH', PHYSICAL_PATH . 'inc_0700/'); # Path to PHP include files - INSIDE APPLICATION ROOT
 //define('INCLUDE_PATH', '/home/mittho2/mitchlthompson.com/itc285-captstone/inc_0700/'); #Path to PHP include files - OUTSIDE WEB ROOT
 define('LOG_PATH', INCLUDE_PATH . 'log/'); # Log files are stored in the PHP include folder
@@ -211,8 +210,7 @@ function printUserError($myFile,$myLine)
 	echo 'This will help us identify the problem, and fix it as quickly as possible.<br />';
 	echo 'Thank you for your assistance and understanding!<br />';
 	echo 'Sincerely,<br />Support Staff<br />';
-	echo '<a href="index.php">Exit</a></td></tr></table>';
-	get_footer(); #add footer info!
+	echo '<a href="/weatherbits/index.php">Exit</a></td></tr></table>';
 	die(); #one error is enough!
 }# End printUserError()
 

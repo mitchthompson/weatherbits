@@ -1,10 +1,7 @@
 //script for view.php for user to get weather & forecast for a fav city
 $(document).ready(function(){  
     
-    
-    
-    if(cityName != ' '){
-        
+
         $('button.weather, form input[type=submit]').on('click', function(e) {
            e.preventDefault();
             //ajax request replacing city query with user input
@@ -14,7 +11,7 @@ $(document).ready(function(){
 
 
                 //Output heading with city name
-                $("#result").html("<h3>Current Weather</h3>");
+                $("#result").html("<h3>" + data["name"] + " Current Weather</h3>");
                 
                 $("#result").append('<div class="current text-center">'
                     + '<div class="row"><div class="col-sm-4">'
@@ -41,13 +38,13 @@ $(document).ready(function(){
        $('button.forecast, form input[type=submit]').on('click', function(e) {
             e.preventDefault();        
             //ajax request replacing city query with user input
-            $.getJSON("http://api.openweathermap.org/data/2.5/forecast?q=" + cityName + ",us&mode=json&appid=eba558c0e8d425f21d760c3534758f31",function(data,status){
+            $.getJSON("https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + ",us&mode=json&appid=eba558c0e8d425f21d760c3534758f31",function(data,status){
                     
             if (status == "success") {//if successful request
                 
                 
                 //Output heading with city name
-                $("#result").html("<h3>Forecast</div>");
+                $("#result").html("<h3>" + data["city"]["name"] + " Forecast" + "</h3>");
                 
                 //iterate through data pulling out the data for 12pm each day
                 for (i = 3; i <= 35; i += 8)  {    
@@ -95,5 +92,4 @@ $(document).ready(function(){
         var fahrenheit = (((Number(value) - 273.15)*9)/5) + 32;
         return fahrenheit.toFixed(0);
     }
-}
-    });
+});

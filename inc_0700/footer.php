@@ -1,4 +1,4 @@
-<div class="row">
+            <div class="row">
                 <div class="result">
                     <section id="result" class="container">
                     </section>
@@ -9,14 +9,12 @@
             </div><!--row-->
 
     <footer class="navbar-fixed-bottom">
-               <div class="container-fluid">
+               <div class="container">
                    <div class="row">
                         <ul class="text-center list-unstyled">
-                            <li class="col-sm-4">All Rights Reserved</li>
-                            <li class="col-sm-4">
-                                &copy; <?php echo date("Y"); ?>
-                            </li>
-                            <li class="col-sm-4">
+                            <li class="col-xs-6">&copy; <?php echo date("Y"); ?></li>
+                          
+                            <li class="col-xs-6">
                                 <a href="http://www.mitchlthompson.com">Mitchell Thompson</a>
                             </li>
                         </ul>

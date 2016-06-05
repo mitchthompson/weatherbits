@@ -4,7 +4,7 @@ $(document).ready(function(){
     //Browser supports geolocation, we're good to go! 
 
     } else {    
-    alert('Sorry your browser doesn\'t support the Geolocation API');    
+    alert('Sorry your browser doesn\'t support the Geolocation');    
     }
         
     $('.location').on('click', function(e) {
@@ -19,11 +19,11 @@ $(document).ready(function(){
 
             //Make a call to the Google maps api to get the name of the location
             jQuery.ajax({
-            url: 'http://maps.googleapis.com/maps/api/geocode/json?latlng='+latitude+','+longitude+'&sensor=true',
+            url: 'https://maps.googleapis.com/maps/api/geocode/json?latlng='+latitude+','+longitude+'&sensor=true',
             type: 'POST',
             dataType: 'json',
             success: function(data) {
-
+        
               var location = data.results[0].address_components[2].long_name;
               $('#cityInput').val($('#cityInput').val() + location);
               $('.location-feedback').html("");
@@ -60,6 +60,8 @@ $(document).ready(function(){
                     
             if (status == "success") {//if successful request
                 
+                $("small.feedback").html(" ");
+                $(".location-feedback").html(" ");
                 
                 //Output heading with city name
                 $("#result").html("<div class='city-name'><h3>" + data["city"]["name"] + " Forecast" + "</h3></div>");
@@ -111,6 +113,7 @@ $(document).ready(function(){
        }else{//if valid entry
     
             $("small.feedback").html(" ");
+            $(".location-feedback").html(" ");
 
             //ajax request replacing city query with user input
             $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=" + formData[1] + ",us&mode=json&appid=eba558c0e8d425f21d760c3534758f31",function(data,status){

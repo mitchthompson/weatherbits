@@ -64,11 +64,9 @@ if(mysqli_num_rows($result) > 0)
 @mysqli_free_result($result);
 
 ?>
-       
-        <h2 class="text-uppercase"><?php echo $cityName ?></h2>
+               
         
-        
-        <fieldset class="form-group">
+        <fieldset class="form-group text-center">
             <div class="btn-group">
 
                 <button class="btn btn-primary btn-lg weather" type="button">Current Weather</button>
@@ -77,9 +75,9 @@ if(mysqli_num_rows($result) > 0)
                 <button class="btn btn-primary btn-lg forecast" type="button">Five Day Forecast</button>
             </div>
         </fieldset>
-        
-        <u><a class="pull-right" href="list.php?id=<?php echo $userID ?>">Back to Favorite Cities</a></u>
-    
+        <div class="text-center">
+            <a href="list.php?id=<?php echo $userID ?>"><span class="glyphicon glyphicon-chevron-left"></span>Back to Favorite Cities</a>
+        </div>
      
         <script> var cityName = " <?php echo $cityName ?> "</script>
             

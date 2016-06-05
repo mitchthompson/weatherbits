@@ -4,7 +4,7 @@
             <div class="row">
                 <section class="intro text-center">
                     <h2>Get a U.S. City Weather &amp; Forecast</h2>
-                    <p class="text-muted"><a href="#">Register</a> to save your favorite cities</p>
+                    <p class="text-muted"><a href="./user/register.php">Register</a> to save your favorite cities</p>
                 </section>
                 <section class="intro text-center">
                     <form class="form-horizontal" role="form">

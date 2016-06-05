@@ -18,20 +18,26 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
           <!-- Latest compiled and minified JavaScript -->
           <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-        <script src="../js/script.js"></script>
+        <script src="../js/userview_script.js"></script>
     </head>
     <body>     
         <nav class="navbar navbar-default" role="navigation">
             <div class="container-fluid">
                  <div class="navbar-header">
-                            <a class="navbar-brand" href="#">
-                                Weather Bits</a>
-                                </div><!--navbar-header -->
-                                        
+                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNav" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                     </button>
+                     <a class="navbar-brand" href="http://www.mitchlthompson.com/weatherbits/index.php">Weather Bits</a>
+                  </div><!--navbar-header -->
+            <div class="navbar-collapse collaspe collapse"  id="myNav"> 
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="/weatherbits/index.php">Home</a></li>     
                     <li><a href="/weatherbits/user/register.php">Register</a></li> 
                     <li><a href="/weatherbits/index.php">Log Out</a></li>    
                 </ul>     
+            </div><!-- collaspe navbar-collapse -->
         </div><!--container-fluid-->
         </nav> 
