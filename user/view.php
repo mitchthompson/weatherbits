@@ -1,6 +1,6 @@
 <?php
 /**
- * index.php a list page of user cities
+ * view.php a view page of user city
  *
  *
  * @package nmCommon

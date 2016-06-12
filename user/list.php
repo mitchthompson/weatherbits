@@ -58,13 +58,13 @@ if(mysqli_num_rows($result) > 0)
     
     
 }else{#no records
-	echo '<div align="center">Sorry, you do not have any favorite cities</div>';
+	echo '<div align="center">You do not have any favorite cities</div>';
 }
 
 @mysqli_free_result($result);
 
             
-echo '<button class="btn btn-primary btn-lg col-md-4 col-md-offset-4" type="button"><a href="./add.php?id=' . $id . '">Add favorite cities</a></button>';
+echo '<a class="btn btn-primary btn-lg col-md-4 col-md-offset-4" type="button" href="./add.php?id=' . $id . '">Add favorite cities</a>';
 ?>       
         </div><!--row-->
     </main> 

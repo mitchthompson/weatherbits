@@ -1,12 +1,13 @@
+//script for index.php(home page) for user to get weather & forecast for a city 
 $(document).ready(function(){  
     
+    //geolocate user
     if (navigator.geolocation) {    
     //Browser supports geolocation, we're good to go! 
-
     } else {    
     alert('Sorry your browser doesn\'t support the Geolocation');    
     }
-        
+    //gets longitude and latitude then uses MAP API to get name of location then auto-fills text input box for user with location name
     $('.location').on('click', function(e) {
         e.preventDefault();
         navigator.geolocation.getCurrentPosition(showPosition);

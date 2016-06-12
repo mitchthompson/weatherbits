@@ -11,8 +11,9 @@ $(document).ready(function(){
 
 
                 //Output heading with city name
-                $("#result").html("<h3>" + data["name"] + " Current Weather</h3>");
+                $("#result").html("<div class='city-name'><h3>" + data["name"] + " Current Weather</h3></div>");
                 
+                //Output temp, description, weather icon
                 $("#result").append('<div class="current text-center">'
                     + '<div class="row"><div class="col-sm-4">'
                     + '<img src="http://openweathermap.org/img/w/' + data.weather[0].icon + '.png">'
@@ -28,8 +29,12 @@ $(document).ready(function(){
                     + '</li></div><!--col-xs-3--></div><!--row--></div><!--current-->' 
                     );
                 
+                $(".city-name").hide();
+                $(".city-name").fadeIn(1500);
+                $(".current").hide();
+                $(".current").fadeIn(1500);
 
-            } else {
+            } else {//if request failed
                 $("#result").html("<h4>Weather lookup failed...</h4>");
             }
             });
@@ -38,13 +43,13 @@ $(document).ready(function(){
        $('button.forecast, form input[type=submit]').on('click', function(e) {
             e.preventDefault();        
             //ajax request replacing city query with user input
-            $.getJSON("https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + ",us&mode=json&appid=eba558c0e8d425f21d760c3534758f31",function(data,status){
+            $.getJSON("http://api.openweathermap.org/data/2.5/forecast?q=" + cityName + ",us&mode=json&appid=eba558c0e8d425f21d760c3534758f31",function(data,status){
                     
             if (status == "success") {//if successful request
                 
                 
                 //Output heading with city name
-                $("#result").html("<h3>" + data["city"]["name"] + " Forecast" + "</h3>");
+                $("#result").html("<div class='city-name'><h3>" + data["city"]["name"] + " Forecast" + "</h3></div>");
                 
                 //iterate through data pulling out the data for 12pm each day
                 for (i = 3; i <= 35; i += 8)  {    
@@ -62,6 +67,12 @@ $(document).ready(function(){
                     
                  )}; 
                 
+                $("#result").show();
+                $(".city-name").hide();
+                $(".city-name").fadeIn(1500);
+                $(".five-day").hide();
+                $(".five-day").fadeIn(1500);
+                
                 
             } else {//if request unsuccesful output message to user
                 $("#result").show(); //show #result
@@ -70,7 +81,7 @@ $(document).ready(function(){
             }); 
        });
      
-    //takes data abotu date from ajax request & returns in correct format
+    //date data from ajax request & returns in correct format
     function formatDate(data) {
         var ajaxDate = data.split(" ");
         var date =  ajaxDate[0].split("-");

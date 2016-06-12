@@ -52,7 +52,7 @@ if(isset($_POST['register']))
         echo '      
         <div class="jumbotron"><main class="container">
         <h2>You have successfully registered!</h2>
-        <a href="#">Add favorite cities -></a>';
+        <a href="./user-lg.php">Log in to add favorite cities -></a>';
         
         
     }

@@ -1,4 +1,21 @@
-<?php include 'inc_0700/header.php' ?>
+<?php
+/**
+ * index.php is the home page of weather bits
+ * 
+ * 
+ *
+ *
+ * @package nmCommon
+ * @author Mitchell Thompson <thomitchell@gmail.com>
+ * @version 1.0 2016/05/05 
+ * @link http://www.mitchlthompson.com/ 
+ * @license http://opensource.org/licenses/osl-3.0.php Open Software License ("OSL") v. 3.0
+ * @see common_inc.php
+ * @todo none
+ */
+
+include 'inc_0700/header.php'?>
+
 <div class="jumbotron">
         <main class="container">
             <div class="row">
@@ -8,21 +25,15 @@
                 </section>
                 <section class="intro text-center">
                     <form class="form-horizontal" role="form">
-                     
                         <fieldset class="form-group">
-      
                             <div class="input-group col-md-4 col-md-offset-4 col-xs-6 col-xs-offset-3">
                                 <input type="name" class="form-control form-group-sm" id="cityInput" name="city" placeholder=" Enter city name">
-      
                                 <span class="location input-group-addon" id="basic-addon"><span class="glyphicon glyphicon-record"></span></span>
                             </div>
                         </fieldset>
                         <fieldset class="form-group">
                             <div class="btn-group">
-                        
                                 <button class="btn btn-primary weather" type="button">Current Weather</button>
-                             
-                             
                                 <button class="btn btn-primary forecast" type="button">Five Day Forecast</button>
                             </div>
                         </fieldset>

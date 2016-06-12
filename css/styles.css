@@ -29,7 +29,6 @@ a img {
     background-color: #a8b6bf;
 }
 .navbar-brand {
-    font-family: 'Sarpanch', sans-serif;
     font-size: 1.8em;
 }
 .navbar-default .navbar-brand {
@@ -51,7 +50,14 @@ a img {
     border: 1px solid #7d4627;
     color:#7d4627;
 }
-
+@media screen and (max-width: 460px) {
+    .intro h2 {
+        font-size: 1.4em;
+    }
+    .intro p {
+        font-size: 1em;
+    }
+}
 /** #result **/
 .date {
     border-bottom: solid 2px;
@@ -61,7 +67,15 @@ a img {
     margin-top:-30px;
     padding-bottom: 70%;
     padding-top:30px;
-   
+}
+.city-name {
+    margin-bottom: 5px;
+}
+@media screen and (max-width: 460px) {
+    .result {
+        margin-left:10px;
+        margin-right:10px;
+    }
 }
 .openweather {
     margin-top:50px;
@@ -73,6 +87,7 @@ a img {
     border: 2px solid;
     margin-right: 1%;
     margin-bottom: 1%;
+    background-color: #a8b6bf;
 }
 .five-day li {
     list-style-type: none;
@@ -90,10 +105,12 @@ button a {
 /** current weather **/
 .current li {
     list-style-type: none;
+
 }
 .current {
     border: 2px solid;
     padding: 2%;
+    background-color: #a8b6bf;
 }
 
 /** footer  **/
@@ -101,6 +118,7 @@ button a {
 footer {
     background-color: #a8b6bf;
     font-size: 1em;
+    border-top: solid 2px #7d4627;
 }
 footer li {
     height:40px;
@@ -108,7 +126,7 @@ footer li {
 }
 @media (max-width:460px){
     footer {
-
+        
     }
 }
 

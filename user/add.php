@@ -33,6 +33,7 @@ echo '<div class="jumbotron"><main class="container"><div class="row">';
 if(isset($_POST['add']))
 {//data submitted
     
+    
     $city = $_POST['city'];
     
     # SQL statement 
@@ -41,10 +42,11 @@ if(isset($_POST['add']))
     #IDB::conn() creates a shareable database connection via a singleton class
     $result = mysqli_query(IDB::conn(),$sql) or die(trigger_error(mysqli_error(IDB::conn()), E_USER_ERROR));
     
+    //checks if city is already in DB, if yes $cityInDB = 1
+    $cityInDB = 0;
     if(mysqli_num_rows($result) > 0)
     {#there are records - present data
         
-        $cityInDB = 0;
 
         while($row = mysqli_fetch_assoc($result))
         {# pull data from associative array 
@@ -58,7 +60,7 @@ if(isset($_POST['add']))
         
     
     @mysqli_free_result($result);
-    
+        //if city not in DB, adds to DB
         if($cityInDB == 0){
     
             #SQL statement
